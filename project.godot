@@ -1,0 +1,36 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Interview With a Wizard"
+run/main_scene="res://main_menu.tscn"
+config/features=PackedStringArray("4.3", "C#", "Forward Plus")
+config/icon="res://Images/hatIcon.png"
+
+[display]
+
+window/stretch/mode="canvas_items"
+
+[dotnet]
+
+project/assembly_name="New Game Project"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/GodotInk/plugin.cfg")
+
+[gui]
+
+theme/custom_font="res://Images/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1(1)/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/connection_ii/ConnectionII.otf"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4fx4vvdmlunk"]
+
+[ext_resource type="Script" path="res://StoryScreen.gd" id="1_x7xxx"]
+[ext_resource type="Texture2D" uid="uid://dxhgu18j0cxi1" path="res://Images/titleScreenDraft.png" id="2_bnqhk"]
+[ext_resource type="Texture2D" uid="uid://bgpdqoqkrb06u" path="res://Images/brown background.png" id="2_u56c2"]
+
+[sub_resource type="Theme" id="Theme_npwmc"]
+
+[node name="StoryScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x7xxx")
+
+[node name="TitleScreenDraft" type="Sprite2D" parent="."]
+position = Vector2(577.833, 341.5)
+scale = Vector2(4.63333, 4.63333)
+texture = ExtResource("2_bnqhk")
+
+[node name="TitleScreenDraft2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(575, 343)
+scale = Vector2(4.61533, 4.61533)
+texture = ExtResource("2_bnqhk")
+
+[node name="BrownBackground" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(623, 368)
+texture = ExtResource("2_u56c2")
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 564.0
+offset_right = 195.0
+offset_bottom = 619.0
+theme = SubResource("Theme_npwmc")
+theme_override_font_sizes/font_size = 30
+text = "Back"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 587.0
+offset_top = 7.0
+offset_right = 1127.0
+offset_bottom = 640.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 23
+text = "You walk along the busy street late in the evening, headed to your apartment from your retail job making minimum wage. 
+
+You’re so exhausted and burnt out, you don’t notice the light pole until you smack your face against the wooden beam. The pain snaps you out of your daze, and you find yourself face to face with an ad stapled to the pole. 
+
+The ad is clearly for a job, but it doesn’t say anything about what it is; just that the salary is negotiable, and to come to 777 Merlin Ln Apt 304 if interested. 
+
+Most days you’d completely ignore something like this, never even consider it, but not today. Today you decide to break the monotonous cycle of your life, and take a risk for a better future. That’s what you thought."
+autowrap_mode = 3
+
+[connection signal="pressed" from="BackButton" to="." method="_on_button_pressed"]

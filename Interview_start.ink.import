@@ -1,0 +1,16 @@
+[remap]
+
+importer="ink"
+type="Resource"
+uid="uid://ovfqbxd3bhnm"
+path="res://.godot/imported/Interview_start.ink-fc14d7c6cde98fa43c893da2b5d604af.res"
+
+[deps]
+
+source_file="res://Interview_start.ink"
+dest_files=["res://.godot/imported/Interview_start.ink-fc14d7c6cde98fa43c893da2b5d604af.res"]
+
+[params]
+
+is_main_file=true
+compress=true

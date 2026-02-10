@@ -1,0 +1,78 @@
+[gd_scene load_steps=11 format=3 uid="uid://dc5jk5bxnf2wg"]
+
+[ext_resource type="Script" path="res://mainGame.gd" id="1_1kq08"]
+[ext_resource type="Script" path="res://Scripts/DialogueManager.cs" id="1_ww33b"]
+[ext_resource type="Resource" uid="uid://ovfqbxd3bhnm" path="res://Interview_start.ink" id="2_jpbnu"]
+[ext_resource type="Texture2D" uid="uid://0n7jj4tq2a6w" path="res://Images/cat_final.png" id="3_fwr8l"]
+[ext_resource type="Texture2D" uid="uid://cmookdmkurxre" path="res://Images/bacgroundVerThree_BACKUP.png" id="4_ryw7r"]
+[ext_resource type="FontFile" uid="uid://bj4l3xvfnr3jm" path="res://Images/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1(1)/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/connection_ii/ConnectionII.otf" id="5_25f6q"]
+[ext_resource type="Texture2D" uid="uid://b5kckn1n4nap1" path="res://Images/wizard_final.png" id="5_d4p1t"]
+[ext_resource type="AudioStream" uid="uid://bqpagxpbbin67" path="res://pings.mp3" id="7_rwpd0"]
+[ext_resource type="Script" path="res://audio_stream_player_2d.gd" id="8_oba58"]
+
+[sub_resource type="Theme" id="Theme_janhv"]
+default_font_size = 30
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_1kq08")
+
+[node name="DialogueManager" type="Node" parent="." node_paths=PackedStringArray("dialogue", "dialogueChoices")]
+script = ExtResource("1_ww33b")
+dialogue = NodePath("BacgroundVerThreeBackup/Label")
+dialogueChoices = NodePath("VBoxContainer2")
+newStory = ExtResource("2_jpbnu")
+
+[node name="ScrollDialogue" type="Sprite2D" parent="DialogueManager"]
+visible = false
+position = Vector2(597, 346)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_fwr8l")
+
+[node name="BacgroundVerThreeBackup" type="Sprite2D" parent="DialogueManager"]
+position = Vector2(600, 338)
+texture = ExtResource("4_ryw7r")
+
+[node name="Label" type="Label" parent="DialogueManager/BacgroundVerThreeBackup"]
+anchors_preset = -1
+anchor_left = -0.00916667
+anchor_right = -0.00916667
+offset_left = 163.0
+offset_top = -326.0
+offset_right = 563.0
+offset_bottom = 283.0
+theme_override_colors/font_color = Color(0.308998, 0.174114, 0.0854547, 1)
+theme_override_fonts/font = ExtResource("5_25f6q")
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="CatFinal" type="Sprite2D" parent="DialogueManager"]
+position = Vector2(625, 144)
+texture = ExtResource("3_fwr8l")
+
+[node name="WizardFinal" type="Sprite2D" parent="DialogueManager"]
+position = Vector2(349, 374)
+scale = Vector2(1.20333, 1.20333)
+texture = ExtResource("5_d4p1t")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="DialogueManager"]
+z_index = 10
+offset_left = 768.0
+offset_top = 462.0
+offset_right = 1139.0
+offset_bottom = 640.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_rwpd0")
+autoplay = true
+script = ExtResource("8_oba58")
+
+[node name="ResetButton" type="Button" parent="."]
+z_index = 10
+offset_top = 590.0
+offset_right = 174.0
+offset_bottom = 647.0
+theme = SubResource("Theme_janhv")
+text = "Restart"
+
+[connection signal="finished" from="AudioStreamPlayer2D" to="AudioStreamPlayer2D" method="_on_finished"]
+[connection signal="pressed" from="ResetButton" to="." method="_on_story_button_pressed"]
