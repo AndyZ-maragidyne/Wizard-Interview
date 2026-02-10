@@ -1,1 +1,1 @@
-Wizard Interview is a game where are you are interviewed by a wizard because you want to get a job
+Wizard Interview is a game where are you stumble into a wizard's home and then agree to be interviewed to become his assistant. You are that desperate for a job, apparently
